@@ -97,7 +97,7 @@ void transfer(stack <int> &fromstack, stack <int> &tostack){
             displaystack();
             // 'Abhinandan, tumhi jinklaat!!' is just Marathi version of 'Congratulations, you won!!' (Marathi is language)
             cout<<"----------------------------------"<<endl;
-            cout<<"|  Abhinandan, tumhi jinklaat!!  |"<<endl;
+            cout<<"|   Congratulations, you've won   |"<<endl;
             cout<<"----------------------------------"<<endl;
         }
         else{
