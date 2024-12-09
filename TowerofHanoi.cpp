@@ -222,3 +222,4 @@ int main(){
     
 }
 //Thanks for reading my code ;)
+//Feel free to use it and pull up with something more amazing.
