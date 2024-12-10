@@ -23,6 +23,16 @@ void movecasesfor3();
 void transfer(stack<int> &fromstack, stack<int> &tostack, int x);
 
 void displaystack(){
+    system("cls");
+    cout<<"Welcome to the game 'Tower of Hanoi', arrange tiles in decreasing order from top to botton to win the game."<<endl;
+    cout<<"Rules - "<<endl;
+    cout<<"1. Moves where tiles larger than the bottom tile, are invalid."<<endl;
+    cout<<"2. Only one tile can be moved at a time."<<endl;
+    cout<<"3. Only topmost tile can be transfered from one tower to the other."<<endl;
+    cout<<endl;
+    cout<<"First select tower number to move tile from other tower."<<endl;
+    cout<<"Then select another tower number to where the tile is supposed to be moved."<<endl;
+
 // This temporary stacks are created in order to print them by popping elements
     stack <int> tempstack1 = stack1;
     stack <int> tempstack2 = stack2;
@@ -95,7 +105,7 @@ void transfer(stack <int> &fromstack, stack <int> &tostack){
         fromstack.pop();
         if(tostack.size()==numtiles+1){
             displaystack();
-            // 'Abhinandan, tumhi jinklaat!!' is just Marathi version of 'Congratulations, you won!!' (Marathi is language)
+
             cout<<"----------------------------------"<<endl;
             cout<<"|   Congratulations, you've won   |"<<endl;
             cout<<"----------------------------------"<<endl;
@@ -206,20 +216,8 @@ void generatestacks(){
 int main(){
 
     generatestacks();
-
     cout<<endl;
-    // In the line below, I've used work 'Hanvati' which means 'chin', this is used just for fun as 'Hanvati' some sort of sounds like 'Hanoi' XD
-    cout<<"Welcome to the game 'Tower of Hanvati', arrange tiles in decreasing order from top to botton to win the game."<<endl;
-    cout<<"Rules - "<<endl;
-    cout<<"1. Moves where tiles larger than the bottom tile, are invalid."<<endl;
-    cout<<"2. Only one tile can be moved at a time."<<endl;
-    cout<<"3. Only topmost tile can be transfered from one tower to the other."<<endl;
-    cout<<endl;
-    cout<<"First select tower number to move tile from other tower."<<endl;
-    cout<<"Then select another tower number to where the tile is supposed to be moved."<<endl;
-
     game();
-    
 }
 //Thanks for reading my code ;)
 //Feel free to use it and pull up with something more amazing.
