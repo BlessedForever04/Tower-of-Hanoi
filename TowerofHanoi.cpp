@@ -6,21 +6,21 @@
 
 using namespace std;
 
-// These stack creation are global so that these can be directly used and changed within any function (Same for variable 'numtiles')
+// These stack creation are global so that these can be directly accessed and changed within any function (Same for variable 'numtiles')
     stack <int> stack1;
     stack <int> stack2;
     stack <int> stack3;
     int numtiles;
 
-// Forward declaration are used to inform the compiler about the existence of functions 
-void generatestacks();
-void game();
-void displaystack();
-void moveinformer();
-void movecasesfor1();
-void movecasesfor2();
-void movecasesfor3();
-void transfer(stack<int> &fromstack, stack<int> &tostack, int x);
+// Forward declaration are used to maintain the scope.
+void generatestacks(); // This function generates stack with given number of tiles (random structure);
+void game(); // Main game function where other functions are called. just to keep main funcion cleaner
+void displaystack(); // This function displays all the 3 stacks in game format (TowerofHanoe);
+void moveinformer(); // Just some instructions it displays
+void movecasesfor1(); // Move cases after selecting 1st column's disc
+void movecasesfor2(); // Move cases after selecting 2nd column's disc
+void movecasesfor3(); // Move cases after selecting 3rd column's disc
+void transfer(stack<int> &fromstack, stack<int> &tostack, int x); // This function transfers disc from one column to another
 
 void displaystack(){
     system("cls");
@@ -66,16 +66,17 @@ void displaystack(){
     cout<<endl;
 }
 
+//main game function, just maintains other functions and starts game
 void game(){
-
+    //game's initial state is displayed
     displaystack();
     cout<<"Select Tower-"<<endl;
     cout<<"Tower 1   Tower 2   Tower 3"<<endl;
     cout<<": ";
-    int m1;
-    cin>>m1;
+    int Move;
+    cin >> Move;
 
-    switch (m1){
+    switch (Move){
         case 1:
         movecasesfor1(); break;
         case 2:
@@ -88,11 +89,14 @@ void game(){
         game();
     }
 }
+
+//Just some text
 void moveinformer(){
     cout<<"Transfer tile to.."<<endl;
     cout<<"Tower 1   Tower 2   Tower 3"<<endl;
 }
 
+// Transfer function to transfer disc from one stack to the other
 void transfer(stack <int> &fromstack, stack <int> &tostack){
 
     if(fromstack.top() == 10){
@@ -122,6 +126,7 @@ void transfer(stack <int> &fromstack, stack <int> &tostack){
         game();
     }
 }
+
 //movecasesfor1 is function which deals with the tile movements of tower 1
 void movecasesfor1(){
     moveinformer();
@@ -141,6 +146,7 @@ void movecasesfor1(){
             movecasesfor1();
         }
 }
+
 //movecasesfor1 is function which deals with the tile movements of tower 2
 void movecasesfor2(){
     moveinformer();
@@ -181,7 +187,6 @@ void movecasesfor3(){
 }
 // This is the function which creates our tile format in 3 towers by using the random number generated
 void generatestacks(){
-
     srand(time(0));
     cout<<"Enter number of tiles you want - (Range upto 9)"<<endl;
     cout<<": ";
@@ -190,7 +195,7 @@ void generatestacks(){
         cout<<"This game is designed to be played on tiles upto 10, but remember this code is playable upto 2,14,74,83,647 tiles, but only if i want xD"<<endl;
         generatestacks();
     }
-// here I've pushed one element in each stack which is greater than the max tile number, here the biggest time is shown as 'numtiles' which also refers as number of tiles.
+// here I've pushed one element in each stack which is greater than the max tile number, here the biggest tile is shown as 'numtiles' which also refers as number of tiles.
 // This three elements in each tower acts as base of the tower which makes sure that stack is not empty so that we can perform various functions on stack
     stack1.push(numtiles+1);
     stack2.push(numtiles+1);
@@ -203,20 +208,21 @@ void generatestacks(){
         arraycorrect[i] = i+1;
         towernumber = (rand() % 3) + 1;
 
-                switch(towernumber){
-                case 1:
-                stack1.push(arraycorrect[i]); break;
-                case 2:
-                stack2.push(arraycorrect[i]); break;
-                case 3:
-                stack3.push(arraycorrect[i]); break;
-                }
+        switch(towernumber){
+            case 1:
+            stack1.push(arraycorrect[i]); break;
+            case 2:
+            stack2.push(arraycorrect[i]); break;
+            case 3:
+            stack3.push(arraycorrect[i]); break;
+        }
     }
-}
-int main(){
-
-    generatestacks();
     cout<<endl;
+}
+
+//clean main function looks gorgeous!
+int main(){
+    generatestacks();
     game();
 }
 //Thanks for reading my code ;)
