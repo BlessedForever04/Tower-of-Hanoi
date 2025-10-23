@@ -145,7 +145,7 @@ void movecasesfor1(){
         }
 }
 
-//movecasesfor1 is function which deals with the tile movements of tower 2
+//movecasesfor2 is function which deals with the tile movements of tower 2
 void movecasesfor2(){
     moveinformer();
     std::cout<<": ";
@@ -164,7 +164,7 @@ void movecasesfor2(){
             movecasesfor2();
         }
 }
-//movecasesfor1 is function which deals with the tile movements of tower 3
+//movecasesfor3 is function which deals with the tile movements of tower 3
 void movecasesfor3(){
     moveinformer();
     std::cout<<": ";
