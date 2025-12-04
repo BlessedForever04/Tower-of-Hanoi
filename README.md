@@ -1,14 +1,97 @@
-<h2>Introduction</h2>
-<p>Tower-of-Hanoi is a mathematical game or puzzle consisting of three rods and a number of disks of various diameters, which can slide onto any rod. The puzzle begins with the disks stacked on one rod in random order, The objective of the puzzle is to move the entire stack to one of the other rods, obeying the following rules:</p>
-<br><p>1. Only one disk may be moved at a time.</p><br>
-<p>2. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack or on an empty rod</p><br>
-<p>3. No disk may be placed on top of a disk that is smaller than it</p><br>
-<p>Once all the disks are in ascending order, you win the game</p>
+# Tower of Hanoi 🗼
 
-<h2>Functionality</h2>
-<p>This game is created using stacks, the 3 rods are represented as stacks of int data type, rather than traditional fixed number of disks in the game, this code contains no limit for disks (only int limit i.e  2,147,483,647), the top most data is transfered from one stack to the other with the correct conditon met (rules of game)</p>
+A C++ implementation of the classic Tower of Hanoi puzzle with a twist - discs start in a **random configuration** across all three towers!
 
-<h2>How to play?</h2>
-<p>Rules are once again repeated when the game is started, first total number of disks are taken as input from user which is max till 9 (max 9 disks) for making the game easier, ofcourse 9 disks are not easy but imagine playing it with 2,147,483,648 disks.</p><br>
-<p>First you have to select the tower number from which topmost disk you want to move and then the tower number to where you want to place the disk.</p><br>
-<p>Keep replacing disks until you win the game, hopefully</p>
+## 📖 About
+
+Tower of Hanoi is a mathematical puzzle consisting of three rods and a number of discs of different sizes. Unlike the traditional puzzle where all discs start on one rod, this implementation randomly distributes the discs across all three towers, creating a unique challenge each time you play.
+
+### Objective
+Arrange all discs in **descending order** (largest at bottom, smallest at top) on any single tower to win the game.
+
+### Rules
+1. Only one disc may be moved at a time
+2. Only the topmost disc from a tower can be moved
+3. A disc cannot be placed on top of a smaller disc
+
+## 🎮 How to Play
+
+1. **Start the game** - You'll be prompted to enter the number of discs (recommended: 3-9)
+2. **Select source tower** - Choose which tower (1, 2, or 3) to move a disc from
+3. **Select destination tower** - Choose where to place the disc
+4. **Repeat** until all discs are arranged in order on one tower
+
+The game displays the current state after each move, showing all three towers with their discs represented by numbers (larger numbers = larger discs).
+
+## 🛠️ Technical Details
+
+### Implementation
+- **Language**: C++ (Standard C++11 or later)
+- **Data Structure**: STL `stack<int>` containers for each tower
+- **Features**:
+  - Random initial disc placement using `<cstdlib>` and `<ctime>`
+  - Input validation for valid moves
+  - Clear visual display of game state
+  - Win condition detection
+
+### Code Structure
+- `generatestacks()` - Creates random initial configuration
+- `displaystack()` - Renders the current game state
+- `game()` - Main game loop handling user input
+- `transfer()` - Validates and executes disc movements
+- `movecasesfor1/2/3()` - Handle movement logic for each tower
+
+## 🚀 Compilation and Running
+
+### Prerequisites
+- C++ compiler with C++11 support (g++, clang++, MSVC, etc.)
+
+### Compile
+```bash
+g++ -o TowerofHanoi TowerofHanoi.cpp
+```
+
+### Run
+```bash
+# Windows
+TowerofHanoi.exe
+
+# Linux/Mac
+./TowerofHanoi
+```
+
+## 📊 Example Gameplay
+
+```
+Welcome to the game 'Tower of Hanoi'...
+
+  3      |      |
+  2      |      |
+  1      4      5
+-----------------
+
+Select Tower-
+Tower 1   Tower 2   Tower 3
+```
+
+## 🎯 Features
+
+- Random initial disc configuration for varied gameplay
+- Input validation to prevent invalid moves
+- Clear visual representation of towers
+- Automatic win detection
+- Support for up to 9 discs (recommended for playability)
+
+## 💡 Tips
+
+- Start with 3-4 discs to learn the game mechanics
+- Plan your moves ahead - Tower of Hanoi requires strategic thinking
+- The minimum number of moves for a sorted configuration is $2^n - 1$ (where $n$ is the number of discs)
+
+## 📝 License
+
+Feel free to use and modify this code for your own projects!
+
+## 🤝 Contributing
+
+Pull requests are welcome! Feel free to enhance the game with additional features or improvements.
